@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, sans-serif;
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    color: white;
+    text-align: center;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Wrapper uses flex to center the main block */
+.wrapper {
+    flex: 1; /* take full height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Title stays on top */
+.title {
+    margin-top: 25vh; /* push down from the very top */
+    margin-bottom: 2em;
+}
+
+.title h1 {
+
+}
+
+/* Main block centered in the remaining space */
+main {
+    margin-top:0; /* push it down */
+    margin-bottom: auto;/* push it up from bottom */
+    max-width: 700px;
+    background: rgba(0,0,0,0.3);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+a {
+    color: #fde68a;
+}
