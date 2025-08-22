@@ -3,55 +3,45 @@
         document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', fn) : fn();
 
     onReady(() => {
+
+        document.documentElement.style.setProperty('--current-theme', "1");
         // Year in footer
         const y = document.getElementById('year');
-        if (y) y.textContent = new Date().getFullYear();
+        if (y) y.textContent = new Date().getFullYear().toString();
 
-        // Randomize gradient angle once per session
-        try {
-            const angleKey = 'sp-gradient-angle';
-            const saved = sessionStorage.getItem(angleKey);
-            const angle = saved ?? `${Math.floor(Math.random() * 180)}deg`;
-            document.documentElement.style.setProperty('--angle', angle);
-            if (!saved) sessionStorage.setItem(angleKey, angle);
-        } catch {
-            // sessionStorage can fail
-        }
+        // Randomize gradient angle
+        const angle = `${Math.floor((Math.random() * 100) +80)}deg`;
+        document.documentElement.style.setProperty('--angle', angle);
+
 
         // Theme toggle
-        const btn = document.getElementById('themeToggle');
+        const btn = document.getElementById('theme-toggle');
         if (btn) {
             btn.addEventListener('click', () => {
-                const root = document.documentElement;
-                const body = document.body;
-                const on = !root.classList.contains('theme-alt');
-                root.classList.toggle('theme-alt', on);
-                body.classList.toggle('theme-alt', on);
-                btn.setAttribute('aria-pressed', String(on));
+
+                const angle = `${Math.floor(Math.random() * 180)}deg`;
+                document.documentElement.style.setProperty('--angle', angle);
+
+                if (document.documentElement.style.getPropertyValue('--current-theme') === "1") {
+
+                    document.documentElement.style.setProperty('--bg-color-def:', "#6366F1");
+                    document.documentElement.style.setProperty('--bg-color1', "#020f1e");
+                    document.documentElement.style.setProperty('--bg-color2', "#a78bfa");
+                    document.documentElement.style.setProperty('--text-color', "aliceblue");
+                    document.documentElement.style.setProperty('--accent', "#f97316");
+                    document.documentElement.style.setProperty('--current-theme', "2");
+
+                } else {
+                    document.documentElement.style.setProperty('--bg-color-def:', "#6366F1");
+                    document.documentElement.style.setProperty('--bg-color1', "rgba(99, 102, 241, 1)");
+                    document.documentElement.style.setProperty('--bg-color2', "rgba(236, 72, 153, 1)");
+                    document.documentElement.style.setProperty('--text-color', "aliceblue");
+                    document.documentElement.style.setProperty('--accent', "#fde68a");
+                    document.documentElement.style.setProperty('--current-theme', "1");
+                }
+
             });
         }
-
-        // wobble the 🚧 on hover / focus
-        document.querySelectorAll('.uc .emoji').forEach((e) => {
-            const add = () => e.classList.add('wobble');
-            const rm  = () => e.classList.remove('wobble');
-            e.addEventListener('mouseenter', add);
-            e.addEventListener('mouseleave', rm);
-            e.addEventListener('focus', add);
-            e.addEventListener('blur', rm);
-        });
-
-        // Keyboard shortcuts: g opens GitHub, / toggles theme
-        window.addEventListener('keydown', (ev) => {
-            if (ev.key.toLowerCase() === 'g' && !ev.metaKey && !ev.ctrlKey && !ev.altKey) {
-                const a = document.getElementById('gh');
-                if (a) { a.focus(); a.click(); }
-            }
-            if (ev.key === '/' && !ev.metaKey && !ev.ctrlKey && !ev.altKey) {
-                ev.preventDefault();
-                btn?.click();
-            }
-        });
 
         console.log('[sachapernak.me] script.js loaded');
     });

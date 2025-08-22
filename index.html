@@ -1,50 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Under Construction • sachapernak.me</title>
-    <link rel="stylesheet" href="style.css" />
-    <noscript>
-        <style>
-            /* if JS blocked show a gradient */
-            body { background: linear-gradient(135deg, #6366f1, #ec4899) !important; }
-        </style>
-    </noscript>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <title>Welcome - Sachapernak.me</title>
+    <meta name="color-scheme" content="light only">
+    <script src="script.js"></script>
 </head>
 <body>
-<div class="wrapper">
-    <header class="title" aria-labelledby="page-title">
-        <h1 id="page-title">
-            <span class="welcome">Welcome to</span>
-            <span class="domain">sachapernak.me</span>
-        </h1>
-    </header>
 
-    <main>
-        <h2 class="uc" aria-live="polite">
-            <span class="pre">This place is</span>
-            <span class="line2">
-          <span class="emoji" aria-hidden="true">🚧</span>
-          <span class="core">under construction</span>
-          <span class="emoji" aria-hidden="true">🚧</span>
-        </span>
-        </h2>
-        <p>Thanks for stopping by! My personal portfolio will be available here soon.</p>
-        <p class="checkback">
-            In the meantime, check back later…
-            <span class="altbreak">or visit my
-            <a id="gh" href="https://github.com/sachapernak" rel="noopener noreferrer">GitHub</a>.
-          </span>
-        </p>
+    <main class="main-container">
+
+        <div class="title-container">
+            <h1>Welcome to sachapernak.me</h1>
+            <h2>The place to learn about my personal projects</h2>
+        </div>
+
+        <div class="content-container">
+            <h2 class="pc"> This place is <b> under construction&nbsp;🚧</b></h2>
+
+            <p class="pc">
+                Thanks for stopping by ! My personal portfolio
+                will be available here soon. <br>
+                In the meantime, check back later... or visit my
+                <a class="accent" href="https://github.com/sachapernak">GitHub</a></p>
+        </div>
+
     </main>
 
-    <footer>
-        © <span id="year"></span> sachapernak.me ·
-        <button id="themeToggle" class="linklike" type="button" aria-pressed="false">Toggle theme</button>
-    </footer>
-</div>
 
-<script src="script.js" defer></script>
+    <footer class="footer-container">
+        <p>© <span id="year">2025</span> sachapernak.me</p>
+            <button id="theme-toggle">Toggle Theme</button>
+    </footer>
+
 </body>
 </html>
+
